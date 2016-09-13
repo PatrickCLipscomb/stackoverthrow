@@ -39,6 +39,11 @@ class ResponsesController < ApplicationController
       flash[:alert] = "Response failed to delete"
     end
   end
+  def upvote
+    response = Response.find(params[:id])
+    response.update_attribute(:votes, response.votes + 1)
+    redirect_to question_path(response.question)
+  end
   private
   def response_params
     params.require(:response).permit(:author, :content, :votes, :question_id)

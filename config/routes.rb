@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     resources :questions
   end
   resources :questions do
-    resources :responses
+    resources :responses do
+      member do
+        post 'upvote'
+      end
+    end
   end
 
 

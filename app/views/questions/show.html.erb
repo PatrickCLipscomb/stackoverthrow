@@ -5,7 +5,7 @@
 <h3>Answers:</h3>
 <ul class="list-group well">
   <% @question.responses.each do |response| %>
-  <li class="list-group-item"><strong><%= response.author %>:</strong> <%= response.content %></li>
+  <li class="list-group-item"><strong><%= response.votes %> votes ||    </strong><strong><%= response.author %>:</strong> <%= response.content %> <%= link_to "Upvote", upvote_question_response_path(@question, response), :method => "post" %></li>
   <% end %>
 </ul>
 

@@ -2,6 +2,6 @@
 
 <ul>
   <% @user.questions.each do |question| %>
-  <li><%= question.content %></li>
+  <li><%= question.content %> <%= link_to 'Edit Question', edit_user_question_path(@user, question), :class => 'btn btn-warning' %></li>
   <% end %>
 </ul>

@@ -8,7 +8,7 @@
 </ul>
 <hr>
 
-<% if @current_user %>
+<% if current_user %>
   <%= link_to "Ask a question", new_user_question_path(session[:user_id]), :class => "btn-lg"%>
   <%= link_to "Edit your questions", user_path(session[:user_id]), :class => "btn btn-success" %>
 <% end %>

@@ -2,15 +2,19 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
   end
+
   def show
     @question = Question.find(params[:id])
   end
+
   def edit
     @question = Question.find(params[:id])
   end
+
   def new
     @question = Question.new
   end
+
   def create
     @user = User.find(session[:user_id])
     @question = @user.questions.create(question_params)
@@ -22,9 +26,13 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
+
   def update
+    @question = Question.find(params[:id])
     @question = @question.update(question_params)
+    redirect_to questions_path
   end
+
   def destroy
     if @question.delete
       flash[:notice] = "Question deleted"
@@ -33,6 +41,7 @@ class QuestionsController < ApplicationController
       flash[:alert] = "Question failed to delete"
     end
   end
+
   private
   def question_params
     params.require(:question).permit(:author, :content, :votes, :user_id)

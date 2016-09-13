@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+  validates :email, :password_hash, :password_salt, :presence => true
 end

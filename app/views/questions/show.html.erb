@@ -1,19 +1,24 @@
-<h1><%= @question.author %> Page</h1>
+<h1><%= @question.author %> asked:</h1>
 
 <h4><%= @question.content %></h4>
 
-<% if 0 == 1 %>
+<h3>Answers:</h3>
 <ul class="list-group well">
   <% @question.responses.each do |response| %>
-  <li class="list-group-item"><strong><%= response.author %></strong> <%= link_to "View response", question_response_path(@question, response), :class => "btn btn-info btn-sm pull-right"%></li>
+  <li class="list-group-item"><strong><%= response.author %>:</strong> <%= response.content %></li>
   <% end %>
 </ul>
-<% end %>
+
 
 <div class="btn-group">
+  <% if current_user %>
+  <% if current_user.id == @question.user.id %>
   <%= link_to "Edit", edit_question_path(@question), :class => "btn btn-primary" %>
   <%= link_to "Delete", question_path(@question), :class => "btn btn-primary", :data => {:confirm => "You Sure?", :method => 'delete'} %>
+  <% end %>
+
   <%= link_to "Add a response", new_question_response_path(@question), :class => "btn btn-primary" %>
+  <% end %>
 </div>
 
 

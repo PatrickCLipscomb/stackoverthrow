@@ -1,4 +1,4 @@
-<h1>question Page</h1>
+<h1>Question Page</h1>
 <hr>
 <ul class="list-group well">
   <% @questions.each do |question| %>
@@ -11,4 +11,8 @@
 <% if current_user %>
   <%= link_to "Ask a question", new_user_question_path(session[:user_id]), :class => "btn-lg"%>
   <%= link_to "Edit your questions", user_path(session[:user_id]), :class => "btn btn-success" %>
+  <hr>
+  <% if current_user.email == 'admin' %>
+  <%= link_to 'See All Users', users_path %>
+  <% end %>
 <% end %>

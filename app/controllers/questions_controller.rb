@@ -17,8 +17,8 @@ class QuestionsController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @question = @user.questions.create(question_params)
-    if @question
+    @question = @user.questions.new(question_params)
+    if @question.save
       flash[:notice] = "Question saved successfully"
       redirect_to questions_path
     else

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     flash[:notice] = "Welcome to the site!"
 
-    redirect_to "/users"
+    redirect_to "/questions"
 
     else
 
@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     redirect_to :back
 
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
 private

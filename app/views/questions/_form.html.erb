@@ -1,0 +1,14 @@
+<%= form_for(@question) do |f| %>
+<div class="field">
+  <%= f.label :author %>
+  <%= f.text_field :author, value: current_user.email%>
+</div>
+<div class="field">
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+</div>
+<br>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

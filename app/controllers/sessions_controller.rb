@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
       #then redirect them to the homepage
 
-      redirect_to "/users"
+      redirect_to "/questions"
 
     else
 
@@ -37,6 +37,6 @@ end
   def destroy
     session[:user_id] = nil
     flash[:notice] = "You've been logged out!"
-    redirect_to "/users"
+    redirect_to "/questions"
   end
 end

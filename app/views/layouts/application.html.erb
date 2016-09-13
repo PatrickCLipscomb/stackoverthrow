@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <header align="middle" class="container">
+      <%= link_to "Add a new user", new_user_path %>
+      <hr>
+      <% if current_user %>
+        <h2>Current user: <%= current_user.email %></h2>
+        <%= link_to "log out", log_out_path %>
+
+      <% else %>
+        <h4>No current user</h4>
+        <%= link_to "log in", log_in_path %>
+      <% end %>
+    </header>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
     <%= yield %>
   </body>
 </html>

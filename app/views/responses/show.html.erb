@@ -1,0 +1,10 @@
+<h1><%= @response.name %> Page</h1>
+
+<div class="btn-group">
+  <%= link_to "Edit", edit_response_path(@response), :class => "btn btn-primary" %>
+  <%= link_to "Delete", response_path(@response), :class => "btn btn-primary", :data => {:confirm => "You Sure?", :method => 'delete'} %>
+</div>
+
+<hr>
+
+<%= link_to "Back to question", question_path(@question) %>

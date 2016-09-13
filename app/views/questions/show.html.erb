@@ -2,7 +2,7 @@
 
 <h4><%= @question.content %></h4>
 
-<% if @question.responses %>
+<% if 0 == 1 %>
 <ul class="list-group well">
   <% @question.responses.each do |response| %>
   <li class="list-group-item"><strong><%= response.author %></strong> <%= link_to "View response", question_response_path(@question, response), :class => "btn btn-info btn-sm pull-right"%></li>
